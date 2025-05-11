@@ -1,0 +1,12 @@
+# Fichiers macOS spécifiques
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Thumbnails
+Icon
+Icon\r
+
+# Fichiers de cache système
+.AppleDesktop

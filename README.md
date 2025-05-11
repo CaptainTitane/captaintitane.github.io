@@ -1,1 +1,3 @@
-# captaintitane.github.io
+# Readme of CaptainTitane
+
+Page en construction

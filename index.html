@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaptainTitane</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="assets/favicon-16x16.png" type="image/png" sizes="16x16"/>
+    <link rel="icon" href="assets/favicon-32x32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="assets/favicon-144x144.png" type="image/png" sizes="144x144" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+    <link rel="manifest" href="assets/site.webmanifest">
+    <style>
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: #fff;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .close-btn:hover {
+            color: #f87171;
+        }
+        .modal-content {
+            overflow-y: auto;
+            max-height: 80vh;
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center gap-6 pt-10">
+    <header class="flex flex-col items-center leading-6">
+        <div class="relative w-64 h-64 mb-10">
+            <img src="assets/CaptainTitane.jpg" alt="Profil Geek" class="rounded-full w-full h-full object-cover shadow-lg border-white border-opacity-5" style="border-width: 15px;">
+        </div>
+        <h1 class="text-5xl leading-8 text-center font-bold mb-2">CaptainTitane<br /><small class="opacity-25 text-xl">duxtitane</small></h1>
+        <div class="flex gap-4 mb-6">
+            <a href="https://bsky.app/profile/captaintitane.bsky.social" target="_blank" class="text-xl hover:text-blue-500"><i class="fa-brands fa-bluesky"></i></a>
+            <a href="https://www.instagram.com/captaintitane/" target="_blank" class="text-xl hover:text-yellow-500"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.twitch.tv/captaintitane" target="_blank" class="text-xl hover:text-purple-500"><i class="fab fa-twitch"></i></a>
+            <a href="https://www.youtube.com/@captaintitane" target="_blank" class="text-xl hover:text-red-500"><i class="fab fa-youtube"></i></a>
+            <a href="https://github.com/CaptainTitane" target="_blank" class="text-xl hover:text-green-500"><i class="fab fa-github"></i></a>
+        </div>
+    </header>
+    <main class="pb-14">
+    <div class="flex flex-col gap-4">
+        <button onclick="openModal('about-modal')" class="bg-blue-600 rounded-xl px-6 py-3 text-lg font-semibold hover:bg-blue-500">A propos de moi</button>
+        <button onclick="openModal('sign-lang-modal')" class="bg-blue-600 rounded-xl px-6 py-3 text-lg font-semibold hover:bg-blue-500">Langue des Signes</button>
+        <a href="https://gamelog.me/captaintitane" target="_blank" class="bg-blue-600 rounded-xl px-6 py-3 text-lg font-semibold text-center hover:bg-blue-500">Gamelog</a>
+        <button onclick="openModal('project-modal')" class="bg-blue-600 rounded-xl px-6 py-3 text-lg font-semibold hover:bg-blue-500">Projet</button>
+        <button onclick="openModal('contact-modal')" class="bg-blue-600 rounded-xl px-6 py-3 text-lg font-semibold hover:bg-blue-500">Contact</button>
+    </div>
+
+    <!-- About Modal -->
+    <div id="about-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 hidden z-50">
+        <div class="bg-gray-800 p-8 rounded-xl w-full max-w-md relative modal-content">
+            <button onclick="closeModal('about-modal')" class="close-btn">&times;</button>
+            <h2 class="text-3xl font-bold mb-4">A propos de moi</h2>
+            <h4 class="font-extrabold"><i class='fa-solid fa-hands'></i> Sourd en Langue des Signes</h4>
+            <p>Plongé dans un monde visuel, je m'exprime avec les mains, le visage et le cœur. La langue des signes est bien plus qu'un simple moyen de communication – c'est une culture, une identité et une façon unique de voir le monde.</p>
+            <h4 class="mt-5 font-extrabold"><i class='fa-solid fa-gamepad'></i> Gamer Nomade</h4>
+            <p>Toujours prêt à embarquer pour de nouvelles aventures numériques, que ce soit sur console, PC portable (à venir). Des quêtes épiques aux batailles coopératives entre amis, en passant par les classiques rétro qui ont marqué l'histoire du jeu vidéo.</p>
+            <h4 class="mt-5 font-extrabold"><i class='fa-solid fa-mountain'></i> Randonneur des Alpes Suisses</h4>
+            <p>Les sommets des Alpes sont mon terrain de jeu préféré. Rien ne vaut l'air pur des montagnes, le bruit des pas sur les sentiers et la satisfaction d'un sommet atteint.</p>
+            <h4 class="mt-5 font-extrabold"><i class='fa-solid fa-book-open'></i> Mangas, BD et Témoignages</h4>
+            <p>Dévoreur de mangas et de bandes dessinées, avec une passion pour les récits intenses et les illustrations vibrantes. J'aime aussi plonger dans les témoignages, ces tranches de vie qui inspirent et font réfléchir.</p>
+            <h4 class="mt-5 font-extrabold"><i class='fa-solid fa-globe'></i> Explorateur d'Univers Virtuels et Réels</h4>
+            <p>Je navigue entre pixels et panoramas, cherchant l'évasion et l'inspiration, que ce soit dans un monde ouvert ou au sommet d'une montagne.</p>
+        </div>
+    </div>
+
+    <!-- Langue des signes Modal -->
+    <div id="sign-lang-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 hidden z-50">
+        <div class="bg-gray-800 p-8 rounded-xl w-full max-w-md relative modal-content">
+            <button onclick="closeModal('sign-lang-modal')" class="close-btn">&times;</button>
+            <h2 class="text-3xl font-bold mb-4">Langue des signes</h2>
+            <p class="font-bold">La majorité des personnes dans ma communauté Twitch me posent la même question : est-ce que je peux apprendre les bases à petit prix ou gratuitement ? Et la formation de la langue des signes ?</p>
+            <p>Voici ma réponse : vous trouverez ci-dessous les listes à consulter en cliquant sur les liens :</p>
+            <ul class="space-y-4">
+                <li><h4 class="mt-5 font-extrabold">Dictionnaire</h4></li>
+                <li><a href="https://www.sgb-fss.ch/signsuisse/fr/" class="text-blue-500 hover:underline" target="_blank">Lexique de la langue des signes suisse</a></li>
+                <li><a href="https://dico.elix-lsf.fr/" class="text-blue-500 hover:underline" target="_blank">Dictionnaire en langue des signes en France de LeDicoElix</a></li>
+                <li><a href="https://www.sematos.eu/lsf.html" class="text-blue-500 hover:underline" target="_blank">Dictonnaire en LSF de Sematos</a></li>
+                <li><a href="https://dico.lsfb.be/" class="text-blue-500 hover:underline" target="_blank">Dictionnaire de la langue des signes belgique</a></li>
+                <li><h4 class="mt-5 font-extrabold">Applications</h4></li>
+                <li><a href="https://play.google.com/store/apps/details?id=com.toleio.france&hl=fr_CH&pli=1" class="text-blue-500 hover:underline" target="_blank">Android : Pause LSF</a></li>
+                <li><a href="https://apps.apple.com/ch/app/pause-lsf-langue-des-signes/id6464104237" class="text-blue-500 hover:underline" target="_blank">iOS : Pause LSF</a></li>
+                <li><a href="https://bebe-signe.com/" class="text-blue-500 hover:underline" target="_blank">Bébé Signe</a></li>
+                <li><h4 class="mt-5 font-extrabold">Vidéos en ligne</h4></li>
+                <li><a href="https://www.youtube.com/@aymelinelsf" class="text-blue-500 hover:underline" target="_blank">Aymeline LSF sur YouTube</a></li>
+                <li><a href="https://www.instagram.com/lsf_liloute/" class="text-blue-500 hover:underline" target="_blank">LSF Liloute</a></li>
+                <li><a href="https://www.instagram.com/lea.signes/" class="text-blue-500 hover:underline" target="_blank">Lea, Coda en langue des signes</a></li>
+                <li><a href="https://www.youtube.com/channel/UCNFhDctkot31eMVV-yqJ2vw" class="text-blue-500 hover:underline" target="_blank">MélanieDeaf sur YouTube</a></li>
+                <li><a href="https://discord.gg/aEkyQ6MG6t" class="text-blue-500 hover:underline" target="_blank">Discord de MélanieDeaf</a></li>
+                <li><h4 class="mt-5 font-extrabold">Livres</h4></li>
+                <li><a href="https://www.amazon.fr/Apprenez-facilement-langue-signes-illustr%C3%A9e/dp/2380154864/ref=sr_1_2?__mk_fr_FR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=12CSJ6LXUX0EH&dib=eyJ2IjoiMSJ9.Uo8ZBI-ZXii4_m7NpilYS_Hc4L5kwbLoM73wWSZNVxldQ6HfXSfdQJsje7x2C70EuP7I8Kdgisk6BC9AH5Emyn-HBi-LADxEnTO9e8i2-wQV1g7q6hPIg9VcIXm-WY3ptG3WVp9MDo72J209t7OEUcvWawDZyX2qx90hfYxUg3GuboHVFCB7auWEo8b3zanwYQ8SDrTtjM-mjFSmBjnmCspxrL3CB4F2KofhE4xVQcQpJlyB1DSNPVBXXw3qkOQnMFKcc21B83SA43ZVwtI8B7ggvFAxiJ152RVBPnntmJQ.s-MFBqSRSHQhsa45AfdMG35-zkbyeEOvhHsPX5Ej9J4&dib_tag=se&keywords=chris+Pavone&qid=1746966999&sprefix=chris+pavone%2Caps%2C63&sr=8-2" class="text-blue-500 hover:underline" target="_blank">Livre en vente sur Amazon : Apprenez facilement la langue des signes !</a></li>
+                <li><a href="https://www.amazon.fr/jours-apprendre-facilement-langue-signes/dp/238015810X/ref=pd_sbs_d_sccl_3_7/257-0059150-7779330?pd_rd_w=PEST3&content-id=amzn1.sym.11a9cd48-28fe-49f3-acef-0cb031593c06&pf_rd_p=11a9cd48-28fe-49f3-acef-0cb031593c06&pf_rd_r=G0MD5Z3ZC7YREEC66X84&pd_rd_wg=gH5YF&pd_rd_r=f16b73d2-1eb2-42ea-9010-c903d5a57794&pd_rd_i=238015810X&psc=1" class="text-blue-500 hover:underline" target="_blank">Livre en vente sur Amazon : 30 jours pour apprendre facilement la langue des signes</a></li>
+                <li><a href="https://www.amazon.fr/Manuel-langues-signes-fran%C3%A7aise-Niveau/dp/2701165679/ref=pd_bxgy_d_sccl_1/257-0059150-7779330?pd_rd_w=RbYqr&content-id=amzn1.sym.6d74588d-d473-4523-ade2-87afcdbad55e&pf_rd_p=6d74588d-d473-4523-ade2-87afcdbad55e&pf_rd_r=46FARGYQP4BDFR38VADG&pd_rd_wg=xNi2s&pd_rd_r=d2a20ccb-3331-48d2-9257-0f7347c4829b&pd_rd_i=2701165679&psc=1" class="text-blue-500 hover:underline" target="_blank">Livre en vente sur Amazon. : Langues des signes française - Niveau A1</a></li>
+                <li><a href="https://www.amazon.fr/Langue-signes-fran%C3%A7aise-Niveau-A2/dp/2701192714/?_encoding=UTF8&pd_rd_w=yRnzQ&content-id=amzn1.sym.932a75fd-61c8-4825-8faf-b975fdfddf4a&pf_rd_p=932a75fd-61c8-4825-8faf-b975fdfddf4a&pf_rd_r=257-0059150-7779330&pd_rd_wg=TEsfJ&pd_rd_r=2fd36565-6140-4fe6-bed2-f164c777a0b3&ref_=aufs_ap_sc_dsk" class="text-blue-500 hover:underline" target="_blank">Livre en vente sur Amazon : Langues des signes française - Niveau A2</a></li>
+                <li><h4 class="mt-5 font-extrabold">Formation en Langue des signes</h4></li>
+                <li><a href="https://s-5.ch/cours-formation-lsf-langue-des-signes/" class="text-blue-500 hover:underline" target="_blank">Assocation S5 en Suisse</a></li>
+                <li><a href="https://s-5.ch/cours-formation-lsf-langue-des-signes/" class="text-blue-500 hover:underline" target="_blank">S5 - Sound Off - Sensibilisation de la culture sourde</a></li>
+                <li><a href="https://www.ifage.ch/formation/langues/cours-langue-des-signes/" class="text-blue-500 hover:underline" target="_blank">ifage à Genève</a></li>
+                <li><a href="https://ivt.fr/formations/apprendre" class="text-blue-500 hover:underline" target="_blank">IVT à Paris</a></li>
+                <li><a href="https://www.visuel-lsf.org/" class="text-blue-500 hover:underline" target="_blank">Visuel LSF, tout la France</a></li>
+                <li><a href="http://www.ffsb.be/apprendre-langue-des-signes/" class="text-blue-500 hover:underline" target="_blank">Apprendre LSFB en Belgique</a></li>
+                <li><h4 class="mt-5 font-extrabold">Café en signes</h4></li>
+                <li><a href="https://www.sgb-fss.ch/fr/offres/cafe-des-signes/" class="text-blue-500 hover:underline" target="_blank">Café en signes - SGB-FSS</a> sur <a href="https://www.facebook.com/cafedessignes" class="text-blue-500 hover:underline" target="_blank">Facebook</a></li>
+                <li><a href="https://www.facebook.com/cafesaperossignes/" class="text-blue-500 hover:underline" target="_blank">Café en signes en France</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 hidden z-50">
+        <div class="bg-gray-800 p-8 rounded-xl w-full max-w-md relative modal-content">
+            <button onclick="closeModal('project-modal')" class="close-btn">&times;</button>
+            <h2 class="text-3xl font-bold mb-4">Mon Projet</h2>
+            <p><strong>Mon objectif est de devenir un streamer nomade sourd, avec un contenu accessible en langue des signes, et d'être rémunéré pour développer mon travail de streaming. L’argent récolté servira à améliorer la qualité de mes streams et, éventuellement, à offrir des concours ou des cadeaux à mes viewers.</strong><br />
+            Mon objectif initial est de partager ma passion du streaming pour vous faire découvrir les jeux que j’aime et les moments que j’apprécie de partager avec vous. Dans un avenir proche, je vais beaucoup en déplacement, ce qui me permettra de diffuser mes lives depuis différents lieux."</p>
+            <p class="pt-3">À travers mes lives, je souhaite :</p>
+            <ul class="list-disc pl-5">
+                <li>Sensibiliser à la surdité</li>
+                <li>Valoriser la diversité</li>
+                <li>Montrer qu’on peut vivre sa passion, quels que soient les défis</li>
+            </ul>
+            <p class="pt-3">Voici la liste de ce dont j’ai besoin en tant que streamer nomade :</p>
+            <ul class="list-disc pl-5">
+                <li>Notebook gaming en haut de gamme</li>
+                <li>Moniteur portable externe</li>
+                <li>Support pour le notebook gaming</li>
+                <li>Webcam adapté avec un Elgato Key Light Mini</li>
+                <li>Convertisseur HDMI pour Switch 2</li>
+            </ul>
+            <p class="pt-3">Si vous souhaitez me soutenir par un don pour que je puisse faire des achats, n’hésitez pas à me contacter.</p>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 hidden z-50">
+        <div class="bg-gray-800 p-8 rounded-xl w-full max-w-md relative modal-content">
+            <button onclick="closeModal('contact-modal')" class="close-btn">&times;</button>
+            <h2 class="text-3xl font-bold mb-4">Contact</h2>
+            <form id="contact-form" onsubmit="sendEmail(event)">
+                <input id="name" type="text" placeholder="Votre nom" class="w-full mb-4 p-3 rounded-md bg-gray-700 text-white" required />
+                <input id="email" type="email" placeholder="Votre email" class="w-full mb-4 p-3 rounded-md bg-gray-700 text-white" required />
+                <textarea id="message" placeholder="Votre message" class="w-full mb-4 p-3 rounded-md bg-gray-700 text-white" rows="5" required></textarea>
+                <div id="h-captcha" class="h-captcha mb-4" data-sitekey="6704b7e8-7208-47bc-b844-cfc2ff6298ce"></div>
+                <button type="submit" class="w-full bg-blue-600 rounded-xl p-3 text-lg font-semibold hover:bg-blue-500">Envoyer</button>
+            </form>
+        </div>
+    </div>
+    </main>
+    <footer class="w-full mx-auto p-4 bg-gray-900 text-white text-center opacity-30 pt-4 mt-auto">
+        <p class="text-xs">
+            © CaptainTitane 2025 -
+            <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr" target="_blank" class="text-blue-400">
+                <i class="fab fa-creative-commons"></i> <i class="fa-brands fa-creative-commons-by"></i> <i class="fa-brands fa-creative-commons-nc"></i> <i class="fa-brands fa-creative-commons-nd"></i> 4.0</a> - <a href="legal.html" class="text-blue-400"><i class="fas fa-gavel"></i></a>
+        </p>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/js/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3.11.0/dist/email.min.js"></script>
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+<script>
+    (function() {
+        emailjs.init("L2mlj6_7QyUajGbc9");
+    })();
+
+    function sendEmail(event) {
+        event.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        const tokenElement = document.querySelector('[name="h-captcha-response"]');
+        const token = tokenElement ? tokenElement.value : '';
+
+        if (!token) {
+            alert("Veuillez vérifier que vous n'êtes pas un robot.");
+            return;
+        }
+
+        const formData = {
+            name: name,
+            email: email,
+            message: message,
+            "h-captcha-response": token // Important pour hCaptcha
+        };
+
+        emailjs.send("service_27zr2ev", "template_aedjvzl", formData)
+            .then(() => {
+                alert("Votre message a été envoyé avec succès !");
+                document.getElementById("contact-form").reset();
+                closeModal("contact-modal");
+                grecaptcha.reset(); // Réinitialise hCaptcha
+            })
+            .catch((error) => {
+                console.error("Erreur:", error);
+                alert("Erreur lors de l'envoi du message. Réessayez plus tard.");
+            });
+    }
+
+    function openModal(id) {
+        document.getElementById(id).classList.remove('hidden');
+    }
+
+    function closeModal(id) {
+        document.getElementById(id).classList.add('hidden');
+    }
+</script>
+</body>
+</html>

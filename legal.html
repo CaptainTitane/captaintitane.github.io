@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaptainTitane</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="assets/favicon-16x16.png" type="image/png" sizes="16x16"/>
+    <link rel="icon" href="assets/favicon-32x32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="assets/favicon-144x144.png" type="image/png" sizes="144x144" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+    <link rel="manifest" href="assets/site.webmanifest">
+    <style>
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: #fff;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .close-btn:hover {
+            color: #f87171;
+        }
+        .modal-content {
+            overflow-y: auto;
+            max-height: 80vh;
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center gap-6 pt-10">
+    <header class="flex flex-col items-center leading-6">
+        <div class="relative w-64 h-64 mb-10">
+            <img src="assets/CaptainTitane.jpg" alt="Profil Geek" class="rounded-full w-full h-full object-cover shadow-lg border-white border-opacity-5" style="border-width: 15px;">
+        </div>
+        <h1 class="text-5xl leading-8 text-center font-bold mb-2">CaptainTitane<br /><small class="opacity-25 text-xl">duxtitane</small></h1>
+        <div class="flex gap-4 mb-6">
+            <a href="https://bsky.app/profile/captaintitane.bsky.social" target="_blank" class="text-xl hover:text-blue-500"><i class="fa-brands fa-bluesky"></i></a>
+            <a href="https://www.instagram.com/captaintitane/" target="_blank" class="text-xl hover:text-yellow-500"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.twitch.tv/captaintitane" target="_blank" class="text-xl hover:text-purple-500"><i class="fab fa-twitch"></i></a>
+            <a href="https://www.youtube.com/@captaintitane" target="_blank" class="text-xl hover:text-red-500"><i class="fab fa-youtube"></i></a>
+            <a href="https://github.com/CaptainTitane" target="_blank" class="text-xl hover:text-green-500"><i class="fab fa-github"></i></a>
+        </div>
+    </header>
+    <main class="container mx-auto p-8 text-gray-200">
+        <h1 class="text-4xl font-bold mb-8 text-center">Cadres légaux</h1>
+
+        <section class="mb-12">
+            <h2 class="text-3xl font-semibold mb-6">Mentions légales</h2>
+
+            <h3 class="text-2xl font-bold mb-4">1. Informations légales</h3>
+            <ul class="list-disc list-inside mb-6">
+                <li>Propriétaire du site et du contenu : CaptainTitane</li>
+                <li>Hébergeur : Le site est hébergé par <a href="https://pages.github.com/" target="_blank" class="text-blue-400">GitHub Pages</a>.</li>
+            </ul>
+
+            <h3 class="text-2xl font-bold mb-4">2. Propriété intellectuelle</h3>
+            <p class="mb-6">Tous les contenus présents sur ce site (textes, images, logos, etc.) sont la propriété exclusive de CaptainTitane, à l’exception des éléments fournis par des partenaires. Toute reproduction ou distribution, même partielle, de ces contenus sans autorisation expresse est interdite.</p>
+
+            <h3 class="text-2xl font-bold mb-4">3. Limitation de responsabilité</h3>
+            <p class="mb-6">Le propriétaire du site met tout en œuvre pour offrir des informations précises et fiables, mais ne garantit pas l'exactitude, l'exhaustivité ou l'actualisation des informations fournies. Le site peut contenir des liens vers des sites externes, mais ne saurait être tenu responsable du contenu de ces derniers.</p>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-3xl font-semibold mb-6">Politique de confidentialité</h2>
+
+            <h3 class="text-2xl font-bold mb-4">1. Introduction</h3>
+            <p class="mb-6">La présente politique de confidentialité a pour but de vous informer sur la manière dont le site de CaptainTitane recueille, utilise et protège vos données personnelles lorsque vous utilisez ce site.</p>
+
+            <h3 class="text-2xl font-bold mb-4">2. Données collectées</h3>
+            <p class="mb-6">Lors de l'utilisation de notre formulaire de contact, les informations suivantes peuvent être collectées :</p>
+            <ul class="list-disc list-inside mb-6">
+                <li>Nom</li>
+                <li>Adresse e-mail</li>
+                <li>Message envoyé</li>
+            </ul>
+
+            <h3 class="text-2xl font-bold mb-4">3. Utilisation des données</h3>
+            <p class="mb-6">Les données collectées sont utilisées pour :</p>
+            <ul class="list-disc list-inside mb-6">
+                <li>Répondre à vos demandes via le formulaire de contact</li>
+                <li>Améliorer le service utilisateur</li>
+            </ul>
+
+            <h3 class="text-2xl font-bold mb-4">4. Partage des données</h3>
+            <p class="mb-6">Je ne partage pas vos données personnelles avec des tiers, à l'exception de :</p>
+            <ul class="list-disc list-inside mb-6">
+                <li><a href="https://www.emailjs.com/" target="_blank" class="text-blue-400">EmailJS</a>, un service de messagerie qui permet l'envoi des messages via notre formulaire de contact.</li>
+                <li><a href="https://www.hcaptcha.com/" target="_blank" class="text-blue-400">hCaptcha</a>, utilisé pour vérifier que les formulaires sont remplis par des humains et non des robots.</li>
+            </ul>
+
+            <h3 class="text-2xl font-bold mb-4">5. Cookies et technologies similaires</h3>
+            <p class="mb-6">Ce site utilise des cookies et des technologies similaires, mais il est important de noter que je ne gère pas directement les cookies. Les services tiers, tels que hCaptcha et EmailJS, peuvent utiliser des cookies pour leur bon fonctionnement.</p>
+        </section>
+    </main>
+    <footer class="w-full mx-auto p-4 bg-gray-900 text-white text-center opacity-30 pt-4 mt-auto border-t border-white border-solid border-opacity-30">
+        <p class="text-xs">
+            © CaptainTitane 2025 -
+            <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr" target="_blank" class="text-blue-400">
+                <i class="fab fa-creative-commons"></i> <i class="fa-brands fa-creative-commons-by"></i> <i class="fa-brands fa-creative-commons-nc"></i> <i class="fa-brands fa-creative-commons-nd"></i> 4.0</a> - <a href="legal.html" class="text-blue-400"><i class="fas fa-gavel"></i></a>
+        </p>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/js/all.min.js"></script>
+</body>
+</html>
