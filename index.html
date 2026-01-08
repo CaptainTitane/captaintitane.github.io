@@ -31,6 +31,21 @@
             max-height: 80vh;
             -webkit-overflow-scrolling: touch;
         }
+        .faq-question > span {
+            font-weight: 600;
+        }
+        .faq-answer > p, .faq-answer > ul > li {
+            font-size: .9rem;
+            font-weight: 300;
+        }
+        .faq-answer > h3:first-child {
+            margin-top: 0;
+        }
+        .faq-answer > h3 {
+            font-size: .9rem;
+            font-weight: 500;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex flex-col items-center gap-6 pt-10">
@@ -50,9 +65,11 @@
     <main class="pb-14">
     <div class="flex flex-col gap-4">
         <button onclick="openModal('about-modal')" class="bg-blue-600 rounded-xl px-6 py-3 text-lg font-semibold hover:bg-blue-500">A propos de moi</button>
+        <button onclick="openModal('streamer')" class="bg-blue-600 rounded-xl px-6 py-3 text-lg font-semibold hover:bg-blue-500">Streamer</button>
+        <button onclick="openModal('planning-modal')" class="bg-blue-600 rounded-xl px-6 py-3 text-lg font-semibold hover:bg-blue-500"> Planning du live</button>
         <button onclick="openModal('sign-lang-modal')" class="bg-blue-600 rounded-xl px-6 py-3 text-lg font-semibold hover:bg-blue-500">Langue des Signes</button>
         <a href="https://gamelog.me/captaintitane" target="_blank" class="bg-blue-600 rounded-xl px-6 py-3 text-lg font-semibold text-center hover:bg-blue-500">Gamelog</a>
-        <button onclick="openModal('project-modal')" class="bg-blue-600 rounded-xl px-6 py-3 text-lg font-semibold hover:bg-blue-500">Projet</button>
+        <button onclick="openModal('faq-modal')" class="bg-blue-600 rounded-xl px-6 py-3 text-lg font-semibold hover:bg-blue-500">FAQ</button>
         <button onclick="openModal('contact-modal')" class="bg-blue-600 rounded-xl px-6 py-3 text-lg font-semibold hover:bg-blue-500">Contact</button>
     </div>
 
@@ -71,6 +88,45 @@
             <p>Dévoreur de mangas et de bandes dessinées, avec une passion pour les récits intenses et les illustrations vibrantes. J'aime aussi plonger dans les témoignages, ces tranches de vie qui inspirent et font réfléchir.</p>
             <h4 class="mt-5 font-extrabold"><i class='fa-solid fa-globe'></i> Explorateur d'Univers Virtuels et Réels</h4>
             <p>Je navigue entre pixels et panoramas, cherchant l'évasion et l'inspiration, que ce soit dans un monde ouvert ou au sommet d'une montagne.</p>
+        </div>
+    </div>
+
+ <!-- Streamer -->
+    <div id="streamer" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 hidden z-50">
+        <div class="bg-gray-800 p-8 rounded-xl w-full max-w-md relative modal-content">
+            <button onclick="closeModal('streamer')" class="close-btn">&times;</button>
+            <h2 class="text-3xl font-bold mb-4">Streamer</h2>
+            <p>
+                <strong>En 2026, l’ère professionnelle du webdesign est désormais derrière moi</strong> ; je choisis aujourd’hui d’emprunter <em>un autre chemin</em>. Le streaming est devenu pour moi <strong>une activité de loisir</strong>, pratiquée <em>sans objectif professionnel ni financier</em>.
+            </p>
+            <p>
+                En tant que <strong>streamer bénévole</strong>, je pratique le streaming pour le <strong>plaisir</strong>, le <strong>partage</strong> et la <strong>découverte de jeux que j’aime</strong>, ainsi que pour les <em>moments d’échange avec la communauté</em>, sur mon <strong>temps libre</strong>, dans une ambiance <strong>conviviale et accessible</strong>.
+                <br />
+                Mon objectif est simple : <em>partager avec vous des moments que j’apprécie</em>, tout en <strong>découvrant ensemble de nouveaux jeux à venir</strong>.
+            </p>
+            <p class="pt-3">À travers mes lives, je souhaite :</p>
+            <ul class="list-disc pl-5">
+                <li>Sensibiliser à la surdité</li>
+                <li>Valoriser la diversité</li>
+                <li>Développement d’une communauté interculturelle, inclusive et LGBTQIA+ friendly</li>
+            </ul>
+            <p class="pt-3">Voici la liste de ce dont j’ai besoin en tant que streamer nomade :</p>
+            <ul class="list-disc pl-5">
+                <li>Ordinateur portable gaming en haut de gamme</li>
+                <li>Moniteur portable externe en USB-C avec son support</li>
+                <li>Support pour le notebook gaming</li>
+                <li>Mini-clavier gaming sans fil Bluetooth & souris gaming sans fil</li>
+                <li>Convertisseur HDMI pour Switch 2</li>
+                <li>OBSBOT Meet 2 avec un petit trépied JOBY</li>
+                <li>Elgato Key Light Mini</li>
+            </ul>
+            <p class="pt-3">Si vous souhaitez me soutenir par un don pour que je puisse faire des achats, n’hésitez pas à me contacter.</p>
+        </div>
+    </div>
+
+    <div id="planning-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="relative rounded-xl p-4 max-w-full max-h-full sm:max-w-lg sm:max-h-screen overflow-auto">
+            <img id="planning-img" src="./assets/Story-ProgSemaine-5-01-2026-11-01-2026.jpg" class="max-w-full max-h-screen rounded-lg cursor-pointer" alt="Programme Twitch">
         </div>
     </div>
 
@@ -116,28 +172,129 @@
         </div>
     </div>
 
-    <!-- Project Modal -->
-    <div id="project-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 hidden z-50">
+    <!-- FAQ Modal -->
+    <div id="faq-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 hidden z-50">
         <div class="bg-gray-800 p-8 rounded-xl w-full max-w-md relative modal-content">
-            <button onclick="closeModal('project-modal')" class="close-btn">&times;</button>
-            <h2 class="text-3xl font-bold mb-4">Mon Projet</h2>
-            <p><strong>Mon objectif est de devenir un streamer nomade sourd, avec un contenu accessible en langue des signes, et d'être rémunéré pour développer mon travail de streaming. L’argent récolté servira à améliorer la qualité de mes streams et, éventuellement, à offrir des concours ou des cadeaux à mes viewers.</strong><br />
-            Mon objectif initial est de partager ma passion du streaming pour vous faire découvrir les jeux que j’aime et les moments que j’apprécie de partager avec vous. Dans un avenir proche, je vais beaucoup en déplacement, ce qui me permettra de diffuser mes lives depuis différents lieux."</p>
-            <p class="pt-3">À travers mes lives, je souhaite :</p>
-            <ul class="list-disc pl-5">
-                <li>Sensibiliser à la surdité</li>
-                <li>Valoriser la diversité</li>
-                <li>Montrer qu’on peut vivre sa passion, quels que soient les défis</li>
-            </ul>
-            <p class="pt-3">Voici la liste de ce dont j’ai besoin en tant que streamer nomade :</p>
-            <ul class="list-disc pl-5">
-                <li>Notebook gaming en haut de gamme</li>
-                <li>Moniteur portable externe</li>
-                <li>Support pour le notebook gaming</li>
-                <li>Webcam adapté avec un Elgato Key Light Mini</li>
-                <li>Convertisseur HDMI pour Switch 2</li>
-            </ul>
-            <p class="pt-3">Si vous souhaitez me soutenir par un don pour que je puisse faire des achats, n’hésitez pas à me contacter.</p>
+            <button onclick="closeModal('faq-modal')" class="close-btn">&times;</button>
+            <div class="max-w-2xl mx-auto">
+                <h2 class="text-2xl font-bold mb-4">FAQ</h2>
+
+                <!-- Question -->
+                <div class="border-b border-gray-300 py-2">
+                    <button class="faq-question w-full text-left flex justify-between items-center focus:outline-none">
+                    <span>Pourquoi ai-je choisi CaptainTitane ?</span>
+                    <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer hidden mt-2">
+                        <p>
+                            Beaucoup pensent que j’ai choisi le nom “Captain” parce que j’aurais un lien avec l’armée, et me surnomment donc “Capitaine” en langue des signes ou à l’oral. Mais la vérité est que ce pseudo est inspiré de <strong>Jack Sparrow dans Pirates des Caraïbes</strong>, symbole de liberté et d’aventure.
+                        </p>
+                        <p>
+                            Quant à <strong>Titane</strong>, c’est un hommage à mon chat, mais aussi au <strong>Titan grec</strong>, fils d’Ouranos et Gaïa, ainsi qu’au métal/pierre nommé titane, magnifique à voir. J’aime beaucoup ce nom, et c’est pourquoi il est devenu mon pseudo de gaming.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Question -->
+                <div class="border-b border-gray-300 py-2">
+                    <button class="faq-question w-full text-left flex justify-between items-center focus:outline-none">
+                    <span>Quelle langue utiliserai-je pour le live ?</span>
+                    <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer hidden mt-2">
+                        <p>
+                            J’exprime activement en <strong>Langue des Signes Française (LSF)</strong> pour les viewers sourds francophones, et en <strong>Langue des Signes Internationale (LSI)</strong> pour les viewers sourds du monde entier. Pour les viewers francophones qui ne connaissent pas la LSF, n’hésitez pas à m’écrire en français : je vous répondrai par écrit.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Question -->
+                <div class="border-b border-gray-300 py-2">
+                    <button class="faq-question w-full text-left flex justify-between items-center focus:outline-none">
+                    <span>Quel est le but de mon action streaming ?</span>
+                    <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer hidden mt-2">
+                        <p>
+                            Partager du <strong>fun</strong> et des <strong>connaissances sur le gaming</strong> pendant mon <strong>temps libre</strong>, comme une véritable <strong>activité de loisir</strong>, et créer une <strong>petite communauté interculturelle</strong> et <strong>friendly LGBTQIA+</strong>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Question -->
+                <div class="border-b border-gray-300 py-2">
+                    <button class="faq-question w-full text-left flex justify-between items-center focus:outline-none">
+                    <span>Comment puis-je regarder le planning Twitch ?</span>
+                    <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer hidden mt-2">
+                        <p>
+                            Tu peux cliquer sur le bouton "Planning du live" pour ouvrir le planning directement dans une popup sur le site.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Question -->
+                <div class="border-b border-gray-300 py-2">
+                    <button class="faq-question w-full text-left flex justify-between items-center focus:outline-none">
+                    <span>Quel type de jeux vais-je jouer ?</span>
+                    <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer hidden mt-2">
+                        <p>
+                            Dans le live, je choisis le plus souvent des <strong>jeux indépendants</strong> car je souhaite mettre en lumière des studios souvent petits qui font un travail incroyable. J’ai toujours eu un vrai coup de cœur pour les <strong>JRPG</strong> et les <strong>RPG indépendants</strong>.
+                        </p>
+                        <p>
+                            Je partagerai aussi des <strong>jeux rétro</strong>, que vous pourrez retrouver sur <strong>GOG.com</strong>, qui propose beaucoup de classiques d’antan.
+                        </p>
+                        <p>
+                            De temps en temps, en coopération, il m’arrive de jouer à des jeux développés par n’importe quel studio, en fonction de l’adaptation aux viewers et aux autres communautés, en dehors de mon planning de streaming.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Question -->
+                <div class="border-b border-gray-300 py-2">
+                    <button class="faq-question w-full text-left flex justify-between items-center focus:outline-none">
+                    <span>Quel matériel ai-je actuellement pour mon setup ?</span>
+                    <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer hidden mt-2">
+                        <h3>À la maison :</h3>
+                        <ul>
+                            <li><strong>PC :</strong> Lenovo Legion T5</li>
+                            <li><strong>Modèle :</strong> <a href="https://psref.lenovo.com/syspool/Sys/PDF/Legion/Legion_T5_30IAS10/Legion_T5_30IAS10_Spec.pdf" target="_blank">30IAS10</a></li>
+                            <li><strong>Processeur :</strong> Intel Core Ultra 7 265KF</li>
+                            <li><strong>RAM :</strong> 32 GB Samsung OEM</li>
+                            <li><strong>Disque principal :</strong> 1 TB SK Hynix OEM</li>
+                            <li><strong>Disque secondaire :</strong> WD Black SN850X avec dissipateur - 2TB</li>
+                            <li><strong>Carte graphique :</strong> Nvidia GeForce RTX 5060 Ti - 8GB OEM</li>
+                        </ul>
+                        <h3>Périphériques :</h3>
+                        <ul>
+                            <li><strong>Écrans :</strong> 2x Philips simples</li>
+                            <li><strong>Caméra pour le stream :</strong> Elgato FaceCam Mk.2</li>
+                        </ul>
+                        <h3>En déplacement (streamer nomade) :</h3>
+                        <p>
+                        Je n’ai pas encore reçu d’ordinateur portable gaming, mais j’espère le recevoir en 2026 afin de pouvoir streamer et jouer partout.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Question -->
+                <div class="border-b border-gray-300 py-2">
+                    <button class="faq-question w-full text-left flex justify-between items-center focus:outline-none">
+                    <span>Comment envoyer un message via le formulaire ?</span>
+                    <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer hidden mt-2">
+                        <p>
+                        Remplis le formulaire de contact avec ton nom, ton email et ton message, puis valide après avoir passé le hCaptcha.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -158,7 +315,7 @@
     </main>
     <footer class="w-full mx-auto p-4 bg-gray-900 text-white text-center opacity-30 pt-4 mt-auto">
         <p class="text-xs">
-            © CaptainTitane 2025 -
+            © CaptainTitane 2026 -
             <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr" target="_blank" class="text-blue-400">
                 <i class="fab fa-creative-commons"></i> <i class="fa-brands fa-creative-commons-by"></i> <i class="fa-brands fa-creative-commons-nc"></i> <i class="fa-brands fa-creative-commons-nd"></i> 4.0</a> - <a href="legal.html" class="text-blue-400"><i class="fas fa-gavel"></i></a>
         </p>
@@ -211,6 +368,46 @@
     function closeModal(id) {
         document.getElementById(id).classList.add('hidden');
     }
+
+    function initPlanningModal() {
+        const planningImg = document.getElementById('planning-img');
+        if (!planningImg) return; // Sécurité si l'image n'existe pas
+
+        // Quand on clique sur l'image, fermer la modal
+        planningImg.addEventListener('click', () => {
+            closeModal('planning-modal');
+        });
+    }
+
+    function initFAQModal() {
+        const faqQuestions = document.querySelectorAll('.faq-question');
+
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('.faq-icon');
+
+                // Toggle affichage de la réponse
+                answer.classList.toggle('hidden');
+
+                // Changer le symbole + ↔ -
+                if (answer.classList.contains('hidden')) {
+                    icon.textContent = '+';
+                } else {
+                    icon.textContent = '−';
+                }
+            });
+        });
+    }
+
+    // On initialise le listener après que le DOM est chargé
+    document.addEventListener('DOMContentLoaded', () => {
+        // Initialisation du planning modal
+        initPlanningModal();
+
+        // Initialisation de la FAQ
+        initFAQModal();
+    }); 
 </script>
 </body>
 </html>
